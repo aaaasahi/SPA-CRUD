@@ -19,6 +19,17 @@ module Api
       end
     end
 
+    def update
+      task = Task.find(params[:id])
+      if task.update(task_params)
+        render json: task
+      else
+        render json: task.errors, status: 422
+      end
+    end
+
+    
+
     private
 
     def task_params
