@@ -28,7 +28,13 @@ module Api
       end
     end
 
-    
+    def destroy 
+      if Task.destroy(params[:id])
+        head :no_content
+      else
+        render json: { error: "Failed to destroy" }, status: 422
+      end
+    end
 
     private
 
