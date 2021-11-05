@@ -1,8 +1,13 @@
 module Api
   class TasksController < ApplicationController
     def index
-      todos = Tasks.all
-      render json: todos
+      tasks = Tasks.all
+      render json: tasks
+    end
+
+    def show
+      task = Task.find(params[:id])
+      render json: task
     end
 
   end
