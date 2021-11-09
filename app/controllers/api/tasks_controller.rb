@@ -1,7 +1,7 @@
 module Api
   class TasksController < ApplicationController
     def index
-      tasks = Tasks.all
+      tasks = Task.all
       render json: tasks
     end
 
