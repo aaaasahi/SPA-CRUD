@@ -22,7 +22,7 @@ export const TaskList = () => {
   return (
     <>
       <h2 className="text-center m-5">Task List</h2>
-      <div class="card w-50 mx-auto">
+      <div className="card w-50 mx-auto">
         <ul className="list-group">
           {tasks.map((task, index) => (
             <li className={"list-group-item"} key={index}>
