@@ -1,42 +1,40 @@
-import { useEffect, useState } from 'react';
-import axios from 'axios';
+import { Switch, Route, Link, BrowserRouter } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
-
+import { AddTask } from "./components/AddTask";
+import { TaskList } from "./components/TaskList";
+import { DetailTask } from "./components/DetailTask";
 
 export const App = () => {
-  const [tasks, setTasks] = useState([]);
-
-  useEffect(() => {
-    getTasks();
-  }, []);
-
-  const getTasks = () => {
-    axios.get('http://localhost:8000/api/tasks')
-      .then(response => {
-        setTasks(response.data)
-        console.log(response.data);
-      })
-      .catch(e => {
-        console.log(e);
-      });
-  };
-
   return (
-    <>
-      <h2 className="text-center m-5">Task List</h2>
-      <div class="card w-50 mx-auto">
-        <ul className="list-group">
-          {tasks.map((task, index) => (
-            <li className={"list-group-item"} key={index}>
-              {task.title}
-            </li>
-          ))}
-        </ul>
+    <BrowserRouter>
+    <nav className="navbar navbar-expand navbar-dark bg-secondary">
+      <a href="/tasks" className="navbar-brand nav-title">
+        TaskApp
+      </a>
+      <div className="navbar-nav mr-auto">
+        <li className="nav-item">
+          <Link to={"/tasks"} className="nav-link">
+            Task List
+          </Link>
+        </li>
+        <li className="nav-item">
+          <Link to={"/add"} className="nav-link">
+            AddTodo
+          </Link>
+        </li>
       </div>
-    </>
-  );
+    </nav>
+
+    <div className="container mt-3">
+      <Switch>
+        <Route exact path={["/", "/tasks"]} component={TaskList} />
+        <Route exact path="/add" component={AddTask} />
+        <Route path="/tasks/:id" component={DetailTask} />
+      </Switch>
+    </div>
+  </BrowserRouter>
+  )
 };
 
-export default App;
