@@ -24,6 +24,17 @@ export const DetailTask = () => {
       });
   };
 
+  const deleteTask = () => {
+    axios.delete(`http://localhost:8000/api/tasks/${task.id}`)
+      .then(response => {
+        console.log(response.data);
+        history.push("/tasks");
+      })
+      .catch(e => {
+        console.log(e);
+      });
+  };
+
   return (
     <div className="container">
       <div className="card w-50 mx-auto">
@@ -63,7 +74,12 @@ export const DetailTask = () => {
               </button>
             </div>
             <div className="col-6 d-grid gap-2">
-              <button className="btn btn-outline-danger" >Delete</button>
+              <button 
+                className="btn btn-outline-danger"
+                onClick={deleteTask}
+                >
+                  Delete
+                </button>
             </div>
           </div>
         </div>
