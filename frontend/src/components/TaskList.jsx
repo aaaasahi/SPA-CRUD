@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from "react-router-dom";
 import axios from 'axios';
 
 export const TaskList = () => {
@@ -25,9 +26,11 @@ export const TaskList = () => {
       <div className="card w-50 mx-auto">
         <ul className="list-group">
           {tasks.map((task, index) => (
-            <li className={"list-group-item"} key={index}>
-              {task.title}
-            </li>
+            <Link to={ {pathname: `/tasks/${task.id}`, state: task }}>
+              <li className="list-group-item task-item" key={index}>
+                {task.title}
+              </li>
+            </Link>
           ))}
         </ul>
       </div>
