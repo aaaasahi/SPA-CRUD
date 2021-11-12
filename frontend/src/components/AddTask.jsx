@@ -70,10 +70,12 @@ export const AddTask = () => {
                 />
             </div>
           </div>
-          <div className="text-center">
-            <button onClick={saveTask} className="btn btn-outline-primary mt-3">
-              Submit
-            </button>
+          <div className="row">
+            <div className="col-12 d-grid gap-2">
+              <button onClick={saveTask} className="btn btn-outline-primary mt-3">
+                Submit
+              </button>
+            </div>
           </div>
         </div>
       </div>
