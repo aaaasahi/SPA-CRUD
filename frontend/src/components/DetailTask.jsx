@@ -34,6 +34,14 @@ export const DetailTask = () => {
                 />
             </div>
           </div>
+          <div className="row mt-4">
+            <div className="col-6 d-grid gap-2">
+              <button className="btn btn-outline-success ">Update</button>
+            </div>
+            <div className="col-6 d-grid gap-2">
+              <button className="btn btn-outline-danger" >Delete</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
