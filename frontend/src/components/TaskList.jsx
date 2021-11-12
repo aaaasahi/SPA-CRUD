@@ -27,7 +27,7 @@ export const TaskList = () => {
         <ul className="list-group">
           {tasks.map((task, index) => (
             <Link to={ {pathname: `/tasks/${task.id}`, state: task }}>
-              <li className={"list-group-item"} key={index}>
+              <li className="list-group-item task-item" key={index}>
                 {task.title}
               </li>
             </Link>

@@ -1,5 +1,11 @@
-li {
+a {
+  text-decoration: none;
+}
+.task-item {
   font-size: 20px;
+}
+.task-item:hover {
+  opacity: 0.5;
 }
 .nav-title {
   margin-left: 20px;
